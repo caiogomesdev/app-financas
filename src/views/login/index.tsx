@@ -1,13 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Text } from 'react-native';
-import { Container } from './style'
-
+import { Container, Title, SubTitle, Button, TextButton, Group } from './style'
+import Input from '../../components/input';
+import { useTheme } from 'styled-components/native'
 const App: React.FC = () => {
+  const THEME = useTheme();
   return(
     <Container>
       <StatusBar style="auto" />
-      <Text>HELLO LOGIN COMPONENT</Text>
+      <Group>
+        <Title>Bem vindo!</Title>
+        <SubTitle>Faça o login para continuar</SubTitle>
+      </Group>
+      <Group>
+          <Input textContentType='emailAddress'
+          placeholder='Usuário'
+          placeholderTextColor={ THEME.COLORS.TEXT_900 }
+          />
+          <Input textContentType='password'
+          secureTextEntry={true}
+          placeholder='Senha'
+          placeholderTextColor={ THEME.COLORS.TEXT_900 }
+          />
+          <Button><TextButton>Login</TextButton></Button>
+      </Group>
+      <Group></Group>
+
     </Container>
   )
 }
