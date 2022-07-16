@@ -15,28 +15,27 @@ const App: React.FC = () => {
           <stack.Screen
             name='steps'
             component={ Steps }
-            options={ { headerShown: false }}/>
+            options={{ headerShown: false }}/>
           <stack.Screen
             name='SignIn'
             component={ SignIn }
-            options={ {
+            options={{
               title: '',
               headerStyle: {
                 backgroundColor: theme.COLORS.BACKGROUND_900,
               },
               headerTintColor: theme.COLORS.TEXT_800,
-
             }}
            />
           <stack.Screen
             name='SignUp'
             component={ SignUp }
-            options={ {
+            options={{
               title: '',
               headerStyle: {
                 backgroundColor: theme.COLORS.BACKGROUND_900
               },
-              headerTintColor: theme.COLORS.TEXT_800
+              headerTintColor: theme.COLORS.TEXT_800,
             }}
           />
     </stack.Navigator>
