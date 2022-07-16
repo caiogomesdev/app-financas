@@ -1,14 +1,28 @@
 import React, { createContext, useState } from 'react';
 
-export const AuthContext = createContext({});
+interface AuthContext {
+  isLogged: boolean;
+  user: User | null;
+}
 
+interface SignIn {
+  email: string,
+  passWord: string,
+}
+
+interface User extends SignIn {
+  name: string,
+}
+
+export const AuthContext = createContext<AuthContext | null>(null);
 const AuthProvider: React.FC = ({ children }) => {
-  const [ user, setUser ] = useState({
-    nome: 'caio'
-  });
+  const [ user, setUser ] = useState<User | null>(null);
+
+  async function handleSignUp({ name, email, passWord }: User){
+  }
 
   return(
-    <AuthContext.Provider value={{ user }}>
+    <AuthContext.Provider value={{ isLogged: !!user, user }}>
       {children}
     </AuthContext.Provider>
 
