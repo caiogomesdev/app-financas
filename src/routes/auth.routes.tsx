@@ -17,7 +17,7 @@ const App: React.FC = () => {
             component={ Steps }
             options={ { headerShown: false }}/>
           <stack.Screen
-            name='signIn'
+            name='SignIn'
             component={ SignIn }
             options={ {
               title: '',
@@ -29,7 +29,7 @@ const App: React.FC = () => {
             }}
            />
           <stack.Screen
-            name='signUp'
+            name='SignUp'
             component={ SignUp }
             options={ {
               title: '',
