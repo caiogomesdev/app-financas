@@ -2,7 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Container, Title, SubTitle, Button, TextButton, Group } from './style'
 import Input from '../../components/input';
-import { useTheme } from 'styled-components/native'
+import { useTheme } from 'styled-components/native';
+
 const App: React.FC = () => {
   const THEME = useTheme();
   return(
@@ -14,7 +15,7 @@ const App: React.FC = () => {
       </Group>
       <Group>
           <Input textContentType='emailAddress'
-          placeholder='Usuário'
+          placeholder='Email'
           placeholderTextColor={ THEME.COLORS.TEXT_800 }
           />
           <Input textContentType='password'
