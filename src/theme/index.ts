@@ -1,0 +1,13 @@
+export const THEME = {
+  COLORS: {
+    PRIMARY_900: '#F25C93',
+    PRIMARY_800: '#BF4B81',
+    BACKGROUND_900: '#010A26',
+    BACKGROUND_800: '#0F2873',
+    TEXT_900: '#B9B9B9',
+    TEXT_800: '#F2F2F2'
+  }
+}
+
+
+//#90A66F
