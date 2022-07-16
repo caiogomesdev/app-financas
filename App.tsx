@@ -1,11 +1,11 @@
-import Login from './src/views/login';
+import Cadastro from './src/views/cadastro';
 import { ThemeProvider } from 'styled-components';
 import { THEME } from './src/theme';
 
 export default function App() {
   return (
     <ThemeProvider theme={THEME}>
-      <Login />
+      <Cadastro />
     </ThemeProvider>
   );
 }
