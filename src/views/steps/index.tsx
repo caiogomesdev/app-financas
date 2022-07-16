@@ -10,10 +10,10 @@ const App: React.FC = () => {
     <Container>
       <Image source={logo} />
       <ButtonLogin>
-        <TextBtn onPress={() => navigation.navigate('login')}>Login</TextBtn>
+        <TextBtn onPress={() => navigation.navigate('signIn')}>Login</TextBtn>
       </ButtonLogin>
       <ButtonCadastro>
-        <TextBtn  onPress={() => navigation.navigate('cadastro')}>Cadastro</TextBtn>
+        <TextBtn  onPress={() => navigation.navigate('signUp')}>Cadastro</TextBtn>
       </ButtonCadastro>
     </Container>
   )

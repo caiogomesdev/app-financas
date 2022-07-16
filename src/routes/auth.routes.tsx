@@ -3,8 +3,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useTheme } from 'styled-components/native';
 
 import Steps from '../views/steps';
-import Login from '../views/login';
-import Cadastro from '../views/cadastro';
+import SignIn from '../views/SignIn';
+import SignUp from '../views/SignUp';
 
 const App: React.FC = () => {
   const stack = createNativeStackNavigator();
@@ -14,22 +14,23 @@ const App: React.FC = () => {
     <stack.Navigator>
           <stack.Screen
             name='steps'
-            component={Steps}
-            options={ { headerShown: false}}/>
+            component={ Steps }
+            options={ { headerShown: false }}/>
           <stack.Screen
-            name='login'
-            component={Login}
+            name='signIn'
+            component={ SignIn }
             options={ {
               title: '',
               headerStyle: {
-                backgroundColor: theme.COLORS.BACKGROUND_900
+                backgroundColor: theme.COLORS.BACKGROUND_900,
               },
-              headerTintColor: theme.COLORS.TEXT_800
+              headerTintColor: theme.COLORS.TEXT_800,
+
             }}
            />
           <stack.Screen
-            name='cadastro'
-            component={Cadastro}
+            name='signUp'
+            component={ SignUp }
             options={ {
               title: '',
               headerStyle: {

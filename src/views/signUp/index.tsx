@@ -1,31 +1,51 @@
+import React, { useState } from 'react';
+import { Platform } from 'react-native';
+import { useHeaderHeight } from '@react-navigation/elements';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
 import { Container, Title, SubTitle, Button, TextButton, Group } from './style'
 import Input from '../../components/input';
 import { useTheme } from 'styled-components/native'
 
 const App: React.FC = () => {
   const THEME = useTheme();
+  const headerHeight = useHeaderHeight();
+
+  const [ username, setUsername ] = useState('');
+  const [ email, setEmail ] = useState('');
+  const [ password, setPassword] = useState('');
+
   return(
-    <Container>
+    <Container
+      keyboardVerticalOffset={headerHeight}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
       <StatusBar style="auto" />
       <Group>
         <Title>Olá</Title>
         <SubTitle>Crie uma conta</SubTitle>
       </Group>
       <Group>
-          <Input textContentType='nickname'
+          <Input
+          textContentType='nickname'
           placeholder='Usuário'
           placeholderTextColor={ THEME.COLORS.TEXT_800 }
+          value={ username }
+          onChangeText={(text) => setUsername(text)}
           />
-          <Input textContentType='emailAddress'
+          <Input
+          textContentType='emailAddress'
           placeholder='Email'
           placeholderTextColor={ THEME.COLORS.TEXT_800 }
+          value={ email }
+          onChangeText={(text) => setEmail(text)}
           />
-          <Input textContentType='password'
+          <Input
+          textContentType='password'
           secureTextEntry={true}
           placeholder='Senha'
           placeholderTextColor={ THEME.COLORS.TEXT_800 }
+          value={ password }
+          onChangeText={(text) => setPassword(text)}
           />
           <Button><TextButton>Cadastrar</TextButton></Button>
       </Group>
