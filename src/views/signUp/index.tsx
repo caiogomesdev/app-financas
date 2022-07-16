@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/elements';
 import { StatusBar } from 'expo-status-bar';
 import { Container, Title, SubTitle, Button, TextButton, Group } from './style'
-import Input from '../../components/input';
+import Input from '../../components/Input';
 import { useTheme } from 'styled-components/native'
 
 const App: React.FC = () => {

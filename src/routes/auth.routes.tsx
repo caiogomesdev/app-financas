@@ -2,7 +2,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useTheme } from 'styled-components/native';
 
-import Steps from '../views/steps';
+import Steps from '../views/Steps';
 import SignIn from '../views/SignIn';
 import SignUp from '../views/SignUp';
 

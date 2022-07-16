@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Steps from '../steps';
+import Steps from '../Steps';
 
 const App: React.FC = () => {
   return (
