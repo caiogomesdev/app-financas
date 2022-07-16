@@ -1,11 +1,14 @@
-import React from "react";
-import {View, Text} from "react-native";
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { Text } from 'react-native';
+import { Container } from './style'
 
 const App: React.FC = () => {
   return(
-    <View>
-      <Text>qweqw</Text>
-    </View>
+    <Container>
+      <StatusBar style="auto" />
+      <Text>HELLO LOGIN COMPONENT</Text>
+    </Container>
   )
 }
 
