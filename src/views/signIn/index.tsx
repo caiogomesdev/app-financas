@@ -4,7 +4,6 @@ import { useHeaderHeight } from '@react-navigation/elements';
 import { Container, Title, SubTitle, Button, TextButton, Group } from './style'
 import Input from '../../components/Input';
 import { useTheme } from 'styled-components/native';
-import { firebase } from '../../services/firebase';
 
 const App: React.FC = () => {
   const THEME = useTheme();
