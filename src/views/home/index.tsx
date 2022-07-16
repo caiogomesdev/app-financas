@@ -1,10 +1,13 @@
 import React from 'react';
-
-import Steps from '../Steps';
+import { View, Text } from 'react-native';
 
 const App: React.FC = () => {
   return (
-    <Steps />
+    <View>
+      <Text>
+        Home
+      </Text>
+    </View>
   )
 }
 
