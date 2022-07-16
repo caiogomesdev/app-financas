@@ -4,8 +4,9 @@ export const THEME = {
     PRIMARY_800: '#BF4B81',
     BACKGROUND_900: '#010A26',
     BACKGROUND_800: '#0F2873',
-    TEXT_900: '#B9B9B9',
-    TEXT_800: '#F2F2F2'
+    TEXT_900: '#A9A9A9',
+    TEXT_800: '#B9B9B9',
+    TEXT_700: '#F2F2F2'
   }
 }
 

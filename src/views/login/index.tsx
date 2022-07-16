@@ -15,12 +15,12 @@ const App: React.FC = () => {
       <Group>
           <Input textContentType='emailAddress'
           placeholder='Usuário'
-          placeholderTextColor={ THEME.COLORS.TEXT_900 }
+          placeholderTextColor={ THEME.COLORS.TEXT_800 }
           />
           <Input textContentType='password'
           secureTextEntry={true}
           placeholder='Senha'
-          placeholderTextColor={ THEME.COLORS.TEXT_900 }
+          placeholderTextColor={ THEME.COLORS.TEXT_800 }
           />
           <Button><TextButton>Login</TextButton></Button>
       </Group>

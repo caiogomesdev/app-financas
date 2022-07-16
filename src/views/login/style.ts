@@ -16,11 +16,12 @@ export const Title = styled.Text`
   letter-spacing: 3px;
   font-size: 40px;
   font-weight: bold;
-  color: ${({ theme }) => theme.COLORS.PRIMARY_900};
+  color: ${({ theme }) => theme.COLORS.TEXT_800};
 `
+
 export const SubTitle = styled.Text`
   font-size: 20px;
-  color: ${({ theme }) => theme.COLORS.PRIMARY_800};
+  color: ${({ theme }) => theme.COLORS.TEXT_900};
 `
 
 export const Button = styled.TouchableOpacity`

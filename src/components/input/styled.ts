@@ -5,8 +5,8 @@ export const Input = styled.TextInput`
   font-size: 24px;
   padding: 7px;
   border-bottom-width: 2px;
-  border-bottom-color: ${({ theme }) => theme.COLORS.TEXT_800};
-  color: ${({ theme }) => theme.COLORS.TEXT_800};
+  border-bottom-color: ${({ theme }) => theme.COLORS.TEXT_700};
+  color: ${({ theme }) => theme.COLORS.TEXT_700};
   width: 100%;
   margin-bottom: 35px;
 `
