@@ -9,6 +9,7 @@ export const Container = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
+  position: relative;
 `;
 
 export const Group = styled.View`
@@ -47,3 +48,12 @@ export const Icon = styled.Image`
   width: 41.67;
   height: 41.67;
 `;
+
+export const MenuButton = styled.TouchableOpacity`
+  position: 'absolute';
+  top: 0;
+`
+
+export const MenuIcon = styled.Image`
+
+`
