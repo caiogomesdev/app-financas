@@ -16,7 +16,11 @@ interface User extends SignIn {
 
 export const AuthContext = createContext<AuthContext | null>(null);
 const AuthProvider: React.FC = ({ children }) => {
-  const [ user, setUser ] = useState<User | null>(null);
+  const [ user, setUser ] = useState<User | null>({
+    email: 'qw',
+    name: 'qwe',
+    passWord: 'qwe'
+  });
 
   async function handleSignUp({ name, email, passWord }: User){
   }
