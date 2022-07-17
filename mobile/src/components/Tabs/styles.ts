@@ -7,7 +7,6 @@ interface TabBtn {
 export const Container = styled.View`
   margin-top: 20px;
   margin-bottom: 20px;
-  padding: 0px 20px;
   flex-direction: row;
 `
 
