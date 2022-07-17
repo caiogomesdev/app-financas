@@ -1,14 +1,14 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React from "react";
+import { Text } from "react-native";
+import { Container } from "./styles";
+import Header from "../../components/Header";
 
 const App: React.FC = () => {
   return (
-    <View>
-      <Text>
-        Home
-      </Text>
-    </View>
-  )
-}
+    <Container>
+      <Header></Header>
+    </Container>
+  );
+};
 
 export default App;
