@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
 
-interface AuthContext {
+interface Auth {
   isLogged: boolean;
   user: User | null;
 }
@@ -14,7 +14,7 @@ interface User extends SignIn {
   name: string,
 }
 
-export const AuthContext = createContext<AuthContext | null>(null);
+export const AuthContext = createContext<Auth | null>(null);
 const AuthProvider: React.FC = ({ children }) => {
   const [ user, setUser ] = useState<User | null>({
     email: 'qw',
