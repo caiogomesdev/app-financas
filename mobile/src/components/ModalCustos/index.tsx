@@ -9,6 +9,7 @@ import {
   Input,
   BodyViewRow,
 } from './styles';
+import DatePicker from 'react-native-date-picker'
 import { useTheme } from 'styled-components';
 import { dateFullToString } from '../../utils';
 import { textToPrice } from './helpers';
@@ -55,10 +56,16 @@ const App: React.FC<Props> = ({ setOpenModal, isProfit }) => {
           keyboardType="numeric"
           placeholderTextColor={theme.COLORS.TEXT_800}
           value={date}
-          onChangeText={(text) => setPrice(text)}
+          onChangeText={(text) => setDate(text)}
           small={true}
           />
-
+          <DatePicker
+            modal
+            open={true}
+            date={new Date()}
+            onConfirm={(data) => console.log(data)}
+            onCancel={() => console.log('fechou')}
+          />
           <Input placeholder="Valor"
             keyboardType="numeric"
             placeholderTextColor={theme.COLORS.TEXT_800}
