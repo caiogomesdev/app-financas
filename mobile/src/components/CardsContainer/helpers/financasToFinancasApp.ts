@@ -1,20 +1,13 @@
 import { dateToString } from "../../../utils";
+import { Financa } from "../../../utils/dtos";
 
-export interface Financas {
-  isProfit: boolean;
-  title: string;
-  type: string;
-  value: number;
-  date: Date;
-}
-
-export interface FinancasApp {
+export interface FinancaApp {
   dateString: string;
-  financas: Financas[];
+  financas: Financa[];
 }
 
-export const financasToFinancasApp = (financas: Financas[]): FinancasApp[] => {
-  const result: FinancasApp[] = [];
+export const financasToFinancasApp = (financas: Financa[]): FinancaApp[] => {
+  const result: FinancaApp[] = [];
   financas.forEach(item => {
     const date = item.date;
     const dateString = dateToString(date);
