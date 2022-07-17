@@ -1,17 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { Container, DateText } from './styles';
-import { financasToFinancasApp, Financas, FinancasApp  } from './helpers';
+import { financasToFinancasApp, FinancaApp  } from './helpers';
 import { isDateToday } from '../../utils';
+import { Financa } from '../../utils/dtos';
+import Card from '../Card';
 
 const App: React.FC = () => {
-  const [financas, _setFinancas] = useState<Financas[]>([
-    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-15T00:00') },
-    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-15T00:00') },
+  const [financas, _setFinancas] = useState<Financa[]>([
     { isProfit: true, title: 'Frelancer', type: 'Servico', value: 500, date: new Date() },
+    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date() },
+    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-15T00:00') },
+    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-15T00:00') },
+    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-15T00:00') },
+    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-15T00:00') },
+    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-12T00:00') },
+    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-12T00:00') },
+    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-12T00:00') },
+    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-12T00:00') },
   ]);
 
-  const [ financasApp, setFinancasApp ] = useState<FinancasApp[]>([]);
+  const [ financasApp, setFinancasApp ] = useState<FinancaApp[]>([]);
 
   useEffect(() => {
     setFinancasApp(financasToFinancasApp(financas));
@@ -19,14 +28,15 @@ const App: React.FC = () => {
 
   return (
     <Container>
-      {
-        financasApp.map(item => (
-          <View>
-            <DateText> {isDateToday(item.dateString) ? 'Hoje' : item.dateString} </DateText>
-            {item.financas.map(financa => <Text style={{color: 'red'}}>{ financa.title }</Text>)}
-          </View>
-        ))
-      }
+      <FlatList data={financasApp} renderItem={({ item, index }) => (
+        <View>
+          <DateText key={index}> {isDateToday(item.dateString) ? 'Hoje' : item.dateString} </DateText>
+          <FlatList data={item.financas} renderItem={({ item, index }) =>
+            <Card key={index} financa={item} />}
+          />
+        </View>
+      )
+      } />
     </Container>
   )
 }
