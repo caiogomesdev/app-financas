@@ -1,18 +1,34 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { useTheme } from 'styled-components/native';
 
 import Home from '../views/Home';
+import CustomDrawer from '../components/CustomDrawer';
 
 const App: React.FC = () => {
-  const stack = createNativeStackNavigator();
+  const drawer = createDrawerNavigator();
+  const theme = useTheme();
+
   return(
-    <stack.Navigator>
-      <stack.Screen
+    <drawer.Navigator
+      drawerContent={CustomDrawer}
+      screenOptions={{
+        drawerStyle: {
+          backgroundColor: theme.COLORS.BACKGROUND_800,
+          paddingTop: 174,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }
+      }}
+    >
+      <drawer.Screen
       name='home'
       component={Home}
-      options={ { headerShown: false }}
+        options={{
+          headerShown: false,
+        }}
       />
-    </stack.Navigator>
+    </drawer.Navigator>
   )
 }
 
