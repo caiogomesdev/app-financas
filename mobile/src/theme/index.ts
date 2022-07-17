@@ -7,7 +7,8 @@ export const THEME = {
     BACKGROUND_700: '#526DBF',
     TEXT_900: '#A9A9A9',
     TEXT_800: '#B9B9B9',
-    TEXT_700: '#F2F2F2'
+    TEXT_700: '#E2E2E2',
+    TEXT_600: '#F2F2F2'
   }
 }
 
