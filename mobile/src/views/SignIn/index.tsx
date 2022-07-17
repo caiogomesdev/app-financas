@@ -6,7 +6,7 @@ import Input from '../../components/Input';
 import { useTheme } from 'styled-components/native';
 
 const App: React.FC = () => {
-  const THEME = useTheme();
+  const theme = useTheme();
   const headerHeight = useHeaderHeight();
 
   const [ email, setEmail ] = useState('');
@@ -24,14 +24,14 @@ const App: React.FC = () => {
       <Group>
           <Input textContentType='emailAddress'
           placeholder='Email'
-          placeholderTextColor={ THEME.COLORS.TEXT_800 }
+          placeholderTextColor={ theme.COLORS.TEXT_800 }
           value={ email }
           onChangeText={(text) => setEmail(text)}
           />
           <Input textContentType='password'
           secureTextEntry={ true }
           placeholder='Senha'
-          placeholderTextColor={ THEME.COLORS.TEXT_800 }
+          placeholderTextColor={ theme.COLORS.TEXT_800 }
           value={ password }
           onChangeText={(text) => setPassword(text)}
           />

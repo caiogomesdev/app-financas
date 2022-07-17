@@ -18,7 +18,7 @@ export const AuthContext = createContext<Auth | null>(null);
 const AuthProvider: React.FC = ({ children }) => {
   const [ user, setUser ] = useState<User | null>({
     email: 'qw',
-    name: 'qwe',
+    name: 'Caiooooooooooooooooo',
     passWord: 'qwe'
   });
 
