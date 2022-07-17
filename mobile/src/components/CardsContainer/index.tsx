@@ -35,8 +35,7 @@ const App: React.FC = () => {
             <Card key={index} financa={item} />}
           />
         </View>
-      )
-      } />
+      )} />
     </Container>
   )
 }

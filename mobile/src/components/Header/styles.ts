@@ -20,7 +20,7 @@ export const IconsGroup = styled.View`
 `
 
 export const IconButton = styled.TouchableOpacity`
-  margin-left: 10;
+  margin-left: 10px;
   justify-content: center;
   align-items: center;
 `
@@ -43,10 +43,9 @@ export const SaldoAtualText = styled.Text`
 `;
 
 export const Icon = styled.Image`
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
-  border-radius: 50%;
-  width: 41.67;
-  height: 41.67;
+  border-radius: 50px;
+  width: 41.67px;
+  height: 41.67px;
 `;
 
 export const MenuButton = styled.TouchableOpacity`

@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const ProfileImage = styled.Image`
-  border-radius: 50%;
+  border-radius: 50px;
   margin-bottom: 10px;
   align-self: center;
 `
