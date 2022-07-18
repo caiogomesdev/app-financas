@@ -10,19 +10,23 @@ export class user1658112261593 implements MigrationInterface {
             name: 'id',
             type: 'uuid',
             isPrimary: true,
+            generationStrategy: 'uuid',
           },
           {
             name: 'name',
             type: 'varchar',
           },
           {
-            name: 'created_at',
-            type: 'timestamp',
+            name: 'email',
+            type: 'varchar',
+          },
+          {
+            name: 'password',
+            type: 'varchar',
           },
           {
             name: 'created_at',
             type: 'timestamp',
-            default: 'CURRENT_TIMESTAMP',
           },
         ],
       }),
