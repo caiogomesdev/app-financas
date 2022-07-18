@@ -54,7 +54,8 @@ export const Input = styled.TextInput<InputProps>`
 
 export const PlusButton = styled.TouchableOpacity`
   align-self: flex-end;
-  background-color: ${({ theme }) => theme.COLORS.PRIMARY_900};
+  background-color: ${({ theme }) => theme.COLORS.PRIMARY_900 };
+  box-shadow: 0px 3px 3px rgba(0,0,0,.2);
   padding: 5px 13px;
   margin-top: 15px;
   flex-direction: row;

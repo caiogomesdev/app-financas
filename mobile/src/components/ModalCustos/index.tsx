@@ -84,7 +84,7 @@ const App: React.FC<Props> = ({ setOpenModal, isProfit }) => {
         { openDatePicker && <DateTimePicker
           value={stringToDate(date)}
           mode='date'
-          display='spinner'
+          display={Platform.OS === 'ios' ? 'spinner' : 'default' }
           onChange={(_data, dataDate) => changeCurrentDate(dataDate)}
         />}
 

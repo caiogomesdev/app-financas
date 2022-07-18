@@ -30,7 +30,7 @@ const App: React.FC = () => {
     <Container>
       <FlatList data={financasApp} renderItem={({ item, index }) => (
         <View>
-          <DateText key={index}> {isDateToday(item.dateString) ? 'Hoje' : item.dateString} </DateText>
+          <DateText key={index} isDateToday={isDateToday(item.dateString)}> {isDateToday(item.dateString) ? 'Hoje' : item.dateString} </DateText>
           <FlatList data={item.financas} renderItem={({ item, index }) =>
             <Card key={index} financa={item} />}
           />

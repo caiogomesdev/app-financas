@@ -12,6 +12,3 @@ export const THEME = {
     TEXT_600: '#F2F2F2'
   }
 }
-
-
-//#90A66F
