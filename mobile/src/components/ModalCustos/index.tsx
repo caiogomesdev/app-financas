@@ -10,6 +10,7 @@ import {
   BodyViewRow,
   PlusButton,
   PlusText,
+  AddText,
 } from './styles';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
@@ -90,6 +91,7 @@ const App: React.FC<Props> = ({ setOpenModal, isProfit }) => {
       </BodyView>
       <PlusButton>
         <PlusText>+</PlusText>
+        <AddText>Adicionar</AddText>
       </PlusButton>
     </Container>
   )

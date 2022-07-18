@@ -22,5 +22,5 @@ export const Tab = styled.TouchableOpacity<TabBtn>`
 
 export const TabText = styled.Text`
   font-size: 18px;
-  color: ${({ theme }) => theme.COLORS.TEXT_600}
+  color: ${({ theme }) => theme.COLORS.TEXT_600};
 `

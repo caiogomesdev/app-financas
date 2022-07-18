@@ -42,7 +42,7 @@ export const BodyViewRow = styled.View`
 `
 
 export const Input = styled.TextInput<InputProps>`
-  width: ${props => props.small ? '40%' : '100%'};
+  width: ${props => props.small ? '47%' : '100%'};
   background-color: ${({ theme }) => theme.COLORS.PRIMARY_900};
   text-align: center;
   font-size: 16px;
@@ -57,9 +57,17 @@ export const PlusButton = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.COLORS.PRIMARY_900};
   padding: 5px 13px;
   margin-top: 15px;
+  flex-direction: row;
+  align-items: center;
 `
 
 export const PlusText = styled.Text`
   color: ${({ theme }) => theme.COLORS.TEXT_600};
   font-size: 22px;
+`
+
+export const AddText = styled.Text`
+  color: ${({ theme }) => theme.COLORS.TEXT_600};
+  font-size: 16px;
+  margin-left: 3px;
 `
