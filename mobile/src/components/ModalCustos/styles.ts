@@ -60,6 +60,6 @@ export const PlusButton = styled.TouchableOpacity`
 `
 
 export const PlusText = styled.Text`
-  color: ${({ theme }) => theme.COLORS.TEXT_900};
+  color: ${({ theme }) => theme.COLORS.TEXT_600};
   font-size: 22px;
 `
