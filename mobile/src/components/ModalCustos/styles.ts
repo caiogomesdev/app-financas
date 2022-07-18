@@ -50,4 +50,16 @@ export const Input = styled.TextInput<InputProps>`
   padding: 6px 0px;
   border-radius: 2px;
   margin-top: 15px;
+  `
+
+export const PlusButton = styled.TouchableOpacity`
+  align-self: flex-end;
+  background-color: ${({ theme }) => theme.COLORS.PRIMARY_900};
+  padding: 5px 13px;
+  margin-top: 15px;
+`
+
+export const PlusText = styled.Text`
+  color: ${({ theme }) => theme.COLORS.TEXT_900};
+  font-size: 22px;
 `

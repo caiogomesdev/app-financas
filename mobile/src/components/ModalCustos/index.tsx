@@ -8,11 +8,15 @@ import {
   BodyView,
   Input,
   BodyViewRow,
+  PlusButton,
+  PlusText,
 } from './styles';
-import DatePicker from 'react-native-date-picker'
+import DateTimePicker from '@react-native-community/datetimepicker';
+
 import { useTheme } from 'styled-components';
-import { dateFullToString } from '../../utils';
+import { dateFullToString, stringToDate } from '../../utils';
 import { textToPrice } from './helpers';
+import { Platform } from 'react-native';
 
 interface Props {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,13 +27,18 @@ const App: React.FC<Props> = ({ setOpenModal, isProfit }) => {
   const [ title, setTitle ] = useState('');
   const [ type, setType ] = useState('');
   const [ date, setDate ] = useState(dateFullToString(new Date()));
+  const [ openDatePicker, setOpenDatePicker ] = useState(false);
   const [ price, setPrice ] = useState('0,0');
   const theme = useTheme();
-
 
   function setNumberPrice(text: string) {
     const result = textToPrice(text);
     setPrice(result);
+  }
+
+  function changeCurrentDate(dataDate: Date | undefined) {
+    dataDate && setDate(dateFullToString(dataDate));
+    setOpenDatePicker(Platform.OS === "ios" ? true : false);
   }
 
   return (
@@ -52,21 +61,16 @@ const App: React.FC<Props> = ({ setOpenModal, isProfit }) => {
           onChangeText={(text) => setType(text)}
         />
         <BodyViewRow>
-          <Input placeholder="Valor"
-          keyboardType="numeric"
-          placeholderTextColor={theme.COLORS.TEXT_800}
-          value={date}
-          onChangeText={(text) => setDate(text)}
+          <Input placeholder="Date"
+            showSoftInputOnFocus={false}
+            placeholderTextColor={theme.COLORS.TEXT_800}
+            value={date}
+            onChangeText={(text) => setDate(text)}
+            onFocus={() => setOpenDatePicker(true)}
+            onBlur={() => setOpenDatePicker(false)}
           small={true}
           />
-          <DatePicker
-            modal
-            open={true}
-            date={new Date()}
-            onConfirm={(data) => console.log(data)}
-            onCancel={() => console.log('fechou')}
-          />
-          <Input placeholder="Valor"
+          <Input placeholder="Price"
             keyboardType="numeric"
             placeholderTextColor={theme.COLORS.TEXT_800}
             value={price}
@@ -76,9 +80,17 @@ const App: React.FC<Props> = ({ setOpenModal, isProfit }) => {
 
         </BodyViewRow>
 
+        { openDatePicker && <DateTimePicker
+          value={stringToDate(date)}
+          mode='date'
+          display='spinner'
+          onChange={(_data, dataDate) => changeCurrentDate(dataDate)}
+        />}
+
       </BodyView>
-
-
+      <PlusButton>
+        <PlusText>+</PlusText>
+      </PlusButton>
     </Container>
   )
 }
