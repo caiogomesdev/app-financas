@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { UserRepository } from '../repositories/user.repository';
 import { hash } from 'bcrypt';
+import { UserRepository } from 'src/repositories/user.repository';
 
 @Injectable()
 export class UserService {
