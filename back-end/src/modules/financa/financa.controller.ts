@@ -35,7 +35,7 @@ export class FinancaController {
   @UseGuards(AuthGuard('jwt'))
   @HttpCode(HttpStatus.OK)
   async count(@Req() req: Request) {
-    const value = await this.financaService.sumAllFinancas(req.user.id);
+    const value = await this.financaService.getPriceAllFinancas(req.user.id);
     return { value };
   }
 }

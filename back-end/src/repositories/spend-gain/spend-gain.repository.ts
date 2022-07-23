@@ -22,11 +22,12 @@ export class SpendGainRepository {
     });
   }
 
-  async sumAllPricesByUser(userId: string) {
-    return this.repository
+  async sumAllPricesByUser(userId: string): Promise<number> {
+    const { sum } = await this.repository
       .createQueryBuilder('spend_gain')
       .select('SUM(spend_gain.price)')
       .where('spend_gain.user_id = :userId', { userId })
       .getRawOne();
+    return sum;
   }
 }

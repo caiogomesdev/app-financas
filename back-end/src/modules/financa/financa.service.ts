@@ -19,8 +19,7 @@ export class FinancaService {
     return this.spendGainRepository.create(spendGain);
   }
 
-  async sumAllFinancas(userId: string): Promise<number> {
-    const { sum } = await this.spendGainRepository.sumAllPricesByUser(userId);
-    return sum;
+  async getPriceAllFinancas(userId: string): Promise<number> {
+    return this.spendGainRepository.sumAllPricesByUser(userId);
   }
 }
