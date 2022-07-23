@@ -16,7 +16,7 @@ const App: React.FC = () => {
   return (
     <Container>
       {tabs.map(item =>
-      <Tab actived={item.actived}>
+      <Tab actived={item.actived} key={item.name}>
          <TabText>{item.name}</TabText>
         </Tab>
       )}
