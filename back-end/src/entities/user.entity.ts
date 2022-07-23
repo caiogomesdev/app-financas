@@ -7,9 +7,10 @@ import {
 } from 'typeorm';
 
 import { v4 as uuidv4 } from 'uuid';
+import { IUser } from './models';
 
 @Entity('user')
-export class User {
+export class User implements IUser {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
