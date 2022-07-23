@@ -45,6 +45,6 @@ export class SpendGainRepository {
       .select('SUM(spend_gain.price)')
       .where('spend_gain.user_id = :userId', { userId })
       .getRawOne();
-    return sum;
+    return sum ?? 0;
   }
 }
