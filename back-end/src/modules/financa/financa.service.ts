@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ISpendGain, IUser } from 'src/entities/models';
 import { SpendGainRepository } from 'src/repositories/spend-gain/spend-gain.repository';
 import { FinancaCreateDto } from './dtos';
+import { typesEnum } from './enums';
 
 @Injectable()
 export class FinancaService {
@@ -9,6 +10,13 @@ export class FinancaService {
 
   getAllFinancas(userId: string): Promise<ISpendGain[]> {
     return this.spendGainRepository.findAllByUserId(userId);
+  }
+
+  getAllFinancasWithFilter(
+    userId: string,
+    filter: typesEnum,
+  ): Promise<ISpendGain[]> {
+    return this.spendGainRepository.findAllByUserIdWithFilter(userId, filter);
   }
 
   createSpendGain(user: IUser, body: FinancaCreateDto): Promise<ISpendGain> {
