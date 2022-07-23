@@ -22,11 +22,13 @@ const App: React.FC = () => {
         <SubTitle>Faça o login para continuar</SubTitle>
       </Group>
       <Group>
-          <Input textContentType='emailAddress'
+        <Input textContentType='emailAddress'
           placeholder='Email'
           placeholderTextColor={ theme.COLORS.TEXT_800 }
           value={ email }
           onChangeText={(text) => setEmail(text)}
+          keyboardType='email-address'
+          autoCapitalize='none'
           />
           <Input textContentType='password'
           secureTextEntry={ true }
