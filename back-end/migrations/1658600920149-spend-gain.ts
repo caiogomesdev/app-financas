@@ -1,4 +1,9 @@
-import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+import {
+  MigrationInterface,
+  QueryRunner,
+  Table,
+  TableForeignKey,
+} from 'typeorm';
 
 export class spendGain1658600920149 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -13,6 +18,10 @@ export class spendGain1658600920149 implements MigrationInterface {
             generationStrategy: 'uuid',
           },
           {
+            name: 'user_id',
+            type: 'uuid',
+          },
+          {
             name: 'title',
             type: 'varchar',
           },
@@ -23,16 +32,25 @@ export class spendGain1658600920149 implements MigrationInterface {
           {
             name: 'date',
             type: 'timestamp',
+            default: 'CURRENT_TIMESTAMP',
           },
           {
             name: 'price',
-            type: 'decimal(12,2)',
+            type: 'float',
           },
           {
             name: 'created_at',
             type: 'timestamp',
           },
         ],
+      }),
+    );
+    await queryRunner.createForeignKey(
+      'spend_gain',
+      new TableForeignKey({
+        columnNames: ['user_id'],
+        referencedTableName: 'user',
+        referencedColumnNames: ['id'],
       }),
     );
   }
