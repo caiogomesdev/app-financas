@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { AppDataSource } from 'src/config/data-source';
 import { IUser } from 'src/entities/models';
 import { User } from 'src/entities/user.entity';
-import { IUserCreate } from './models/user-create.model';
+import { IUserCreate } from './models';
 
 @Injectable()
 export class UserRepository {
