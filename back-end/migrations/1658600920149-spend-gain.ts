@@ -36,7 +36,8 @@ export class spendGain1658600920149 implements MigrationInterface {
           },
           {
             name: 'price',
-            type: 'float',
+            type: 'decimal',
+            precision: 2,
           },
           {
             name: 'created_at',
