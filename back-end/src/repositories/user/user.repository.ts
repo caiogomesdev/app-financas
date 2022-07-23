@@ -8,7 +8,7 @@ import { IUserCreate } from './models';
 export class UserRepository {
   repository = AppDataSource.getRepository(User);
 
-  async create(body: IUserCreate) {
+  async create(body: IUserCreate): Promise<User> {
     const user = this.repository.create(body);
     return this.repository.save(user);
   }

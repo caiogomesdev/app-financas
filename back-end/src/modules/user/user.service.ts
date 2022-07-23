@@ -1,13 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { hash } from 'bcrypt';
+import { User } from 'src/entities/user.entity';
 import { UserRepository } from 'src/repositories/user/user.repository';
-import { IUserSigniupDto } from './dtos';
+import { AuthService } from '../auth/auth.service';
+import { IUserSigninDto, IUserSigniupDto } from './dtos';
 
 @Injectable()
 export class UserService {
-  constructor(private readonly userRepository: UserRepository) {}
-  async signUp({ name, email, password }: IUserSigniupDto) {
+  constructor(
+    private readonly userRepository: UserRepository,
+    private readonly authService: AuthService,
+  ) {}
+
+  async signUp({ name, email, password }: IUserSigniupDto): Promise<User> {
     const passwordHash = await hash(password, 8);
-    await this.userRepository.create({ name, email, password: passwordHash });
+    return this.userRepository.create({ name, email, password: passwordHash });
   }
+
+  async signin({ email, password }: IUserSigninDto) {}
 }
