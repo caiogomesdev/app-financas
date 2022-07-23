@@ -1,8 +1,4 @@
-import {
-  BadRequestException,
-  Injectable,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { Request } from 'express';
 import { sign } from 'jsonwebtoken';
 import { IUser } from 'src/entities/models';
@@ -31,7 +27,7 @@ export class AuthService {
   private static jwtExtractor(request: Request) {
     const authHeader = request.headers.authorization;
     if (!authHeader) {
-      throw new BadRequestException('Bad Request.');
+      throw new UnauthorizedException('No token in request');
     }
     return authHeader.split(' ')[1];
   }
