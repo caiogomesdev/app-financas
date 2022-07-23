@@ -16,6 +16,7 @@ export class UserService {
 
   async signUp({ name, email, password }: IUserSigniupDto): Promise<User> {
     const passwordHash = await hash(password, 8);
+    await this.userValidator.emailValidate(email);
     return this.userRepository.create({ name, email, password: passwordHash });
   }
 
