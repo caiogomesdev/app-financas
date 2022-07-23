@@ -24,6 +24,7 @@ export class AuthService {
     if (!user) {
       throw new UnauthorizedException('user not found');
     }
+    user.password = undefined;
     return user;
   }
 
