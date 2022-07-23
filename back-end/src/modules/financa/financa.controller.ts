@@ -4,6 +4,7 @@ import {
   Get,
   HttpCode,
   HttpStatus,
+  Param,
   Post,
   Req,
   UseGuards,
@@ -11,6 +12,7 @@ import {
 import { AuthGuard } from '@nestjs/passport';
 import { Request } from 'express';
 import { FinancaCreateDto } from './dtos';
+import { typesEnum } from './enums';
 import { FinancaService } from './financa.service';
 
 @Controller('financa')
@@ -22,6 +24,13 @@ export class FinancaController {
   @HttpCode(HttpStatus.OK)
   find(@Req() req: Request) {
     return this.financaService.getAllFinancas(req.user.id);
+  }
+
+  @Get('filter/:filtro')
+  @UseGuards(AuthGuard('jwt'))
+  @HttpCode(HttpStatus.OK)
+  findWithFilter(@Req() req: Request, @Param('filtro') filter: typesEnum) {
+    return this.financaService.getAllFinancasWithFilter(req.user.id, filter);
   }
 
   @Post('create')
