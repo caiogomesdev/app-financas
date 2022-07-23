@@ -10,6 +10,6 @@ export const AppDataSource = new DataSource({
   database: 'financas',
   synchronize: true,
   logging: false,
-  entities: [__dirname + '../../modules/entities/*.{ts,js}'],
+  entities: [__dirname + '../../entities/*.entity.{ts,js}'],
   migrations: [__dirname + '../../../migrations/*.{ts,js}'],
 });
