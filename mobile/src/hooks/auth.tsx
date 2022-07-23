@@ -1,8 +1,8 @@
 import React, { createContext, useState } from 'react';
 
-interface Auth {
+interface IAuth {
   isLogged: boolean;
-  user: User | null;
+  user: IUser | null;
 }
 
 interface SignIn {
@@ -10,19 +10,15 @@ interface SignIn {
   passWord: string,
 }
 
-interface User extends SignIn {
+interface IUser extends SignIn {
   name: string,
 }
 
-export const AuthContext = createContext<Auth | null>(null);
+export const AuthContext = createContext<IAuth | null>(null);
 const AuthProvider: React.FC = ({ children }) => {
-  const [ user, setUser ] = useState<User | null>({
-    email: 'qw',
-    name: 'Caiooooooooooooooooo',
-    passWord: 'qwe'
-  });
+  const [ user, setUser ] = useState<IUser | null>(null);
 
-  async function handleSignUp({ name, email, passWord }: User){
+  async function handleSignUp({ name, email, passWord }: IUser){
   }
 
   return(
