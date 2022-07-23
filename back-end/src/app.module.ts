@@ -9,6 +9,7 @@ import { FinancaService } from './modules/financa/financa.service';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from './modules/auth/strategies/jwt.strategy';
+import { MeController } from './modules/me/me.controller';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { JwtStrategy } from './modules/auth/strategies/jwt.strategy';
       signOptions: { expiresIn: process.env.JWT_EXPIRATION },
     }),
   ],
-  controllers: [UserController, FinancaController],
+  controllers: [UserController, FinancaController, MeController],
   providers: [
     UserService,
     AuthService,
