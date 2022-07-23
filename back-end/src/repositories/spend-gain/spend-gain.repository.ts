@@ -12,11 +12,21 @@ export class SpendGainRepository {
     return this.repository.save(result);
   }
 
-  async findAllById(id: string): Promise<ISpendGain[]> {
+  async findAllByUserId(userId: string): Promise<ISpendGain[]> {
     return this.repository.find({
       where: {
-        id,
+        userId: {
+          id: userId,
+        },
       },
     });
+  }
+
+  async sumAllPricesByUser(userId: string) {
+    return this.repository
+      .createQueryBuilder('spend_gain')
+      .select('SUM(spend_gain.price)')
+      .where('spend_gain.user_id = :userId', { userId })
+      .getRawOne();
   }
 }
