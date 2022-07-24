@@ -5,16 +5,22 @@ import Tabs from '../../components/Tabs';
 import CardsContainer from '../../components/CardsContainer';
 import { httpService } from '../../services';
 import { Financa } from '../../utils/dtos';
+import { FilterEnum } from '../../utils/enums';
 
 const App: React.FC = () => {
-  const [ financas, setFinancas ] = useState<Financa[]>([]);
-  const [ priceTotal, setPriceTotal] = useState(0)
+  const [financas, setFinancas] = useState<Financa[]>([]);
+  const [filter, setFilter] = useState('all');
+  const [priceTotal, setPriceTotal] = useState(0);
+
   useEffect(() => {
     init();
   }, []);
 
+  useEffect(() => {
+    getFinancasWithFilter();
+  }, [filter])
+
   async function init() {
-    await getFinancas();
     await getTotalPrices();
   }
 
@@ -23,7 +29,13 @@ const App: React.FC = () => {
     setPriceTotal(result);
   }
 
-  async function getFinancas() {
+  async function getFinancasWithFilter() {
+    if (filter === FilterEnum.ALL) {
+      await getAllFinancas();
+    }
+  }
+
+  async function getAllFinancas() {
     const result = await httpService.getAllFinancasRoute();
     setFinancas(result)
   }
@@ -32,7 +44,7 @@ const App: React.FC = () => {
     <Container>
       <Header priceTotal={ priceTotal }></Header>
       <Section>
-        <Tabs />
+        <Tabs filter={filter} setFilter={ setFilter } />
         <CardsContainer financas={ financas } />
       </Section>
     </Container>
