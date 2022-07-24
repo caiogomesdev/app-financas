@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Group,
@@ -23,9 +23,10 @@ import { numberToMoney } from "../../utils";
 
 interface Params {
   priceTotal: number;
+  updateFinancas: () => Promise<void>
 }
 
-const App: React.FC<Params> = ({ priceTotal }) => {
+const App: React.FC<Params> = ({ priceTotal, updateFinancas }) => {
   const navigation = useNavigation();
   const [ openModal, setOpenModal ] = useState(false);
   const [ profit, setProfit ] = useState(false);
@@ -35,6 +36,15 @@ const App: React.FC<Params> = ({ priceTotal }) => {
     setProfit(isProfit);
     setOpenModal(value);
   }
+
+  useEffect(() => {
+    if (!openModal) {
+      async function update(){
+        await updateFinancas();
+      }
+      update();
+    }
+  }, [openModal])
 
   return (
     <Container>
