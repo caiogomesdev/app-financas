@@ -10,7 +10,7 @@ export const financasToFinancasApp = (financas: Financa[]): FinancaApp[] => {
   const result: FinancaApp[] = [];
   financas.forEach(item => {
     const date = item.date;
-    const dateString = dateToString(date);
+    const dateString = dateToString(new Date(date));
 
     const indexFinancaApp = result.findIndex(itemFinancas => itemFinancas.dateString === dateString);
     if (indexFinancaApp >= 0) {

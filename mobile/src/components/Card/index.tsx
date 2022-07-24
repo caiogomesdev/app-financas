@@ -21,7 +21,7 @@ const App: React.FC<Props> = ({ financa }) => {
         </Group>
         <Group>
           <TextBold>{ financa.price >= 0 ? '+' : '-' } { numberToMoney(financa.price) }</TextBold>
-          <TextRegular isRight={true}>{dateFullToString(financa.date)}</TextRegular>
+          <TextRegular isRight={true}>{dateFullToString(new Date(financa.date))}</TextRegular>
         </Group>
       </Content>
     </Container>
