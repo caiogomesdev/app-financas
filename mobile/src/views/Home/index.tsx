@@ -13,23 +13,16 @@ const App: React.FC = () => {
   const [priceTotal, setPriceTotal] = useState(0);
 
   useEffect(() => {
-    init();
-  }, []);
-
-  useEffect(() => {
-    getFinancasWithFilter();
+    updateFinancasWithFilter();
   }, [filter])
 
-  async function init() {
-    await getTotalPrices();
-  }
-
-  async function getTotalPrices(){
+  async function updateTotalPrices(){
     const result = await httpService.getAllPricesRoute();
     setPriceTotal(result);
   }
 
-  async function getFinancasWithFilter() {
+  async function updateFinancasWithFilter() {
+    await updateTotalPrices();
     if (filter === FilterEnum.ALL) {
       await getAllFinancas();
       return;
@@ -45,7 +38,7 @@ const App: React.FC = () => {
 
   return (
     <Container>
-      <Header priceTotal={ priceTotal }></Header>
+      <Header priceTotal={ priceTotal } updateFinancas={ updateFinancasWithFilter }></Header>
       <Section>
         <Tabs filter={filter} setFilter={ setFilter } />
         <CardsContainer financas={ financas } />
