@@ -18,9 +18,10 @@ const App: React.FC<Params> = ({ financas }) => {
 
   return (
     <Container>
-      <FlatList data={ financasApp } renderItem={({ item }) => (
+      <FlatList data={ financasApp } renderItem={({ item, index }) => (
         <View>
-          <DateText isDateToday={isDateToday(item.dateString)}> { isDateToday(item.dateString) ? 'Hoje' : item.dateString } </DateText>
+          <DateText isFirstItem={index === 0} isDateToday={isDateToday(item.dateString)}>
+            {isDateToday(item.dateString) ? 'Hoje' : item.dateString} </DateText>
           <FlatList data={item.financas} renderItem={({ item }) =>
             <Card financa={item} />}
           />
