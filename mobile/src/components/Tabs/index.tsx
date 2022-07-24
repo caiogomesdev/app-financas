@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FilterEnum } from '../../utils/enums';
 import { Container, Tab, TabText } from './styles';
 
-interface Tabs {
+interface ITabs {
   actived: boolean;
   name: string;
   value: FilterEnum;
@@ -14,7 +14,7 @@ interface Params {
 }
 
 const App: React.FC<Params> = ({ filter, setFilter}) => {
-  const [tabs, setTabs] = useState<Tabs[]>([
+  const [tabs, setTabs] = useState<ITabs[]>([
     { actived: true, name: 'Todos', value: FilterEnum.ALL },
     { actived: false, name: 'Ganhos', value: FilterEnum.LUCRO },
     { actived: false, name: 'Percas', value: FilterEnum.DEFIC }
