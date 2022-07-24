@@ -20,7 +20,7 @@ const App: React.FC<Props> = ({ financa }) => {
           <TextRegular>{financa.type}</TextRegular>
         </Group>
         <Group>
-          <TextBold>{ financa.price >= 0 ? '+' : '-' } { numberToMoney(financa.price) }</TextBold>
+          <TextBold>{ financa.price >= 0 ? '+' : '-' } { numberToMoney(Math.abs(financa.price)) }</TextBold>
           <TextRegular isRight={true}>{dateFullToString(new Date(financa.date))}</TextRegular>
         </Group>
       </Content>
