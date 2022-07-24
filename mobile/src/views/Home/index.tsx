@@ -9,7 +9,7 @@ import { FilterEnum } from '../../utils/enums';
 
 const App: React.FC = () => {
   const [financas, setFinancas] = useState<Financa[]>([]);
-  const [filter, setFilter] = useState('all');
+  const [filter, setFilter] = useState(FilterEnum.ALL);
   const [priceTotal, setPriceTotal] = useState(0);
 
   useEffect(() => {
@@ -32,7 +32,10 @@ const App: React.FC = () => {
   async function getFinancasWithFilter() {
     if (filter === FilterEnum.ALL) {
       await getAllFinancas();
+      return;
     }
+    const result = await httpService.getAllFinancasFilterRoute(filter);
+    setFinancas(result);
   }
 
   async function getAllFinancas() {
