@@ -4,8 +4,8 @@ import {
   getAllFinancas,
   getAllFinancasWithFilter,
   getAllPrices,
-  meRoute,
-  signinRoute
+  me,
+  signin
 } from "./http";
 
 class HttpService {
@@ -22,10 +22,10 @@ class HttpService {
   }
 
   meRoute() {
-    return meRoute(this.getConfig());
+    return me(this.getConfig());
   }
 
-  signinRoute = signinRoute
+  signinRoute = signin
 
   getAllPricesRoute(): Promise<number> {
     return getAllPrices(this.getConfig());
