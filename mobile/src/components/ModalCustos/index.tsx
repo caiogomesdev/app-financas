@@ -16,8 +16,9 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { useTheme } from 'styled-components';
 import { dateFullToString, stringToDate } from '../../utils';
-import { textToPrice } from './helpers';
+import { priceStringToNumber, textToPrice } from './helpers';
 import { Platform } from 'react-native';
+import { httpService } from '../../services';
 
 interface Props {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -40,6 +41,20 @@ const App: React.FC<Props> = ({ setOpenModal, isProfit }) => {
   function changeCurrentDate(dataDate: Date | undefined) {
     dataDate && setDate(dateFullToString(dataDate));
     setOpenDatePicker(Platform.OS === "ios" ? true : false);
+  }
+
+  async function submit() {
+    try {
+      await httpService.createFinancaRoute({
+        title,
+        type,
+        date: stringToDate(date).toISOString(),
+        price: isProfit ? priceStringToNumber(price) : priceStringToNumber(price) * -1
+      })
+      setOpenModal(false)
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -89,7 +104,7 @@ const App: React.FC<Props> = ({ setOpenModal, isProfit }) => {
         />}
 
       </BodyView>
-      <PlusButton>
+      <PlusButton onPress={() => submit()}>
         <PlusText>+</PlusText>
         <AddText>Adicionar</AddText>
       </PlusButton>
