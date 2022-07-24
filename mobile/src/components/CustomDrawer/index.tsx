@@ -3,16 +3,17 @@ import { DrawerContentScrollView, DrawerContentComponentProps } from '@react-nav
 import Profile from '../../assets/profile.png';
 import { ProfileImage, TextBold, TextRegular, Button } from './styles';
 import { AuthContext } from '../../hooks/auth';
-import { View } from 'react-native';
+
 const App: React.FC<DrawerContentComponentProps> = (props) => {
-  const user = useContext(AuthContext);
+  const authContext = useContext(AuthContext);
+
   return (
     <DrawerContentScrollView {...props}>
         <ProfileImage source={Profile} />
       <Button>
-        <TextBold>{user?.user?.name}</TextBold>
+        <TextBold>{authContext?.user?.name}</TextBold>
       </Button>
-      <Button>
+      <Button onPress={() => authContext?.logout()}>
         <TextRegular>Sair</TextRegular>
       </Button>
     </DrawerContentScrollView>
