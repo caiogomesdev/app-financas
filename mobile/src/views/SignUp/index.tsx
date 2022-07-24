@@ -5,14 +5,26 @@ import { StatusBar } from 'expo-status-bar';
 import { Container, Title, SubTitle, Button, TextButton, Group } from './style'
 import Input from '../../components/Input';
 import { useTheme } from 'styled-components/native'
+import { httpService } from '../../services';
+import { useNavigation } from '@react-navigation/native';
 
 const App: React.FC = () => {
   const THEME = useTheme();
   const headerHeight = useHeaderHeight();
+  const navigation = useNavigation();
 
-  const [ username, setUsername ] = useState('');
-  const [ email, setEmail ] = useState('');
-  const [ password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  async function signup() {
+    await httpService.signupRoute({
+      name: username,
+      email,
+      password,
+    })
+    navigation.goBack();
+  }
 
   return(
     <Container
@@ -50,7 +62,7 @@ const App: React.FC = () => {
           value={ password }
           onChangeText={(text) => setPassword(text)}
           />
-          <Button onPress={() => console.log('cadastrar')}>
+          <Button onPress={() => signup()}>
             <TextButton>Cadastrar</TextButton>
           </Button>
       </Group>
