@@ -12,6 +12,17 @@ export const Group = styled.View`
   align-items: center;
 `
 
+export const ErrorView = styled.View`
+  width: 100%;
+  align-items: center;
+  padding-bottom: 10px;
+`
+
+export const ErrorText = styled.Text`
+  font-size: 18px;
+  color: #A64456;
+`
+
 export const Title = styled.Text`
   letter-spacing: 3px;
   font-size: 40px;

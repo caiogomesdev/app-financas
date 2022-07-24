@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Platform } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/elements';
-import { Container, Title, SubTitle, Button, TextButton, Group } from './style'
+import { Container, Title, SubTitle, Button, TextButton, Group, ErrorView, ErrorText } from './style'
 import Input from '../../components/Input';
 import { useTheme } from 'styled-components/native';
+import { AuthContext } from '../../hooks/auth';
+import { AxiosError } from 'axios';
 
 const App: React.FC = () => {
   const theme = useTheme();
+  const authContext = useContext(AuthContext);
   const headerHeight = useHeaderHeight();
 
   const [ email, setEmail ] = useState('');
-  const [ password, setPassword] = useState('');
+  const [ password, setPassword ] = useState('');
+  const [ error, setError ] = useState('');
+
+  async function signin() {
+    try {
+      await authContext?.signIn({ email, password });
+    } catch (err) {
+      const message = (err as AxiosError<any>).response?.data.message;
+      setError(message)
+    }
+  }
 
   return(
     <Container
@@ -36,8 +49,11 @@ const App: React.FC = () => {
           placeholderTextColor={ theme.COLORS.TEXT_800 }
           value={ password }
           onChangeText={(text) => setPassword(text)}
-          />
-          <Button><TextButton>Login</TextButton></Button>
+        />
+          <ErrorView>
+            <ErrorText>{ error }</ErrorText>
+          </ErrorView>
+        <Button onPress={() => signin()}><TextButton>Login</TextButton></Button>
       </Group>
       <Group></Group>
 
