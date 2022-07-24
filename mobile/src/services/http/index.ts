@@ -4,3 +4,4 @@ export * from './priceTotal';
 export * from './allFinancas';
 export * from './allFinancasFilter';
 export * from './signup';
+export * from './createFinanca';

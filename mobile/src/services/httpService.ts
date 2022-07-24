@@ -1,7 +1,8 @@
 import { AxiosRequestConfig } from "axios";
-import { ISignUpDto } from "../utils/dtos";
+import { IFinancaDto, ISignUpDto } from "../utils/dtos";
 import { FilterEnum } from "../utils/enums";
 import {
+  createFinanca,
   getAllFinancas,
   getAllFinancasWithFilter,
   getAllPrices,
@@ -43,6 +44,10 @@ class HttpService {
 
   signupRoute(body: ISignUpDto) {
     return signup(body);
+  }
+
+  createFinancaRoute(body: IFinancaDto) {
+    return createFinanca(body, this.getConfig());
   }
 }
 
