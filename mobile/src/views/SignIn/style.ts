@@ -20,7 +20,7 @@ export const ErrorView = styled.View`
 
 export const ErrorText = styled.Text`
   font-size: 18px;
-  color: #A64456;
+  color: ${({ theme }) => theme.COLORS.TEXT_DANGER};
 `
 
 export const Title = styled.Text`

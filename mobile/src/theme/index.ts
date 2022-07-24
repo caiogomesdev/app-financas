@@ -9,6 +9,7 @@ export const THEME = {
     TEXT_900: '#A9A9A9',
     TEXT_800: '#B9B9B9',
     TEXT_700: '#E2E2E2',
-    TEXT_600: '#F2F2F2'
+    TEXT_600: '#F2F2F2',
+    TEXT_DANGER: '#A64456'
   }
 }
