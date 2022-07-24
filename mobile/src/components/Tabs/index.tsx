@@ -5,12 +5,12 @@ import { Container, Tab, TabText } from './styles';
 interface Tabs {
   actived: boolean;
   name: string;
-  value: string;
+  value: FilterEnum;
 }
 
 interface Params {
-  setFilter: React.Dispatch<React.SetStateAction<string>>
-  filter: string;
+  setFilter: React.Dispatch<React.SetStateAction<FilterEnum>>
+  filter: FilterEnum;
 }
 
 const App: React.FC<Params> = ({ filter, setFilter}) => {
@@ -40,6 +40,5 @@ const App: React.FC<Params> = ({ filter, setFilter}) => {
     </Container>
   )
 }
-
 
 export default App;
