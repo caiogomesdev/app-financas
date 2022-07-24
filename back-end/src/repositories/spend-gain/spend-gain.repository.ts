@@ -21,6 +21,9 @@ export class SpendGainRepository {
           id: userId,
         },
       },
+      order: {
+        createdAt: 'DESC',
+      },
     });
   }
 
@@ -35,6 +38,9 @@ export class SpendGainRepository {
           id: userId,
         },
         price: condition,
+      },
+      order: {
+        createdAt: 'DESC',
       },
     });
   }
