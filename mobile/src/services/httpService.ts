@@ -1,6 +1,8 @@
 import { AxiosRequestConfig } from "axios";
+import { FilterEnum } from "../utils/enums";
 import {
   getAllFinancas,
+  getAllFinancasWithFilter,
   getAllPrices,
   meRoute,
   signinRoute
@@ -31,6 +33,10 @@ class HttpService {
 
   getAllFinancasRoute() {
     return getAllFinancas(this.getConfig());
+  }
+
+  getAllFinancasFilterRoute(filter: FilterEnum) {
+    return getAllFinancasWithFilter(filter ,this.getConfig());
   }
 }
 
