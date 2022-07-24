@@ -10,6 +10,12 @@ export const Container = styled.View`
   padding-bottom: 50px;
 `
 
+export const TextNoRegister = styled.Text`
+  color: ${({ theme }) => theme.COLORS.TEXT_900};
+  align-self: center;
+  font-size: 16px;
+`
+
 export const DateText = styled.Text<DateTextProps>`
   color: ${({ theme }) => theme.COLORS.TEXT_700};
   font-size: 18px;
