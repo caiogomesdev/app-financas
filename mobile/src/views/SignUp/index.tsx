@@ -31,7 +31,7 @@ const App: React.FC = () => {
           placeholderTextColor={ THEME.COLORS.TEXT_800 }
           value={ username }
           onChangeText={(text) => setUsername(text)}
-          autoCapitalize='none'
+          autoCapitalize='words'
           />
           <Input
           textContentType='emailAddress'
