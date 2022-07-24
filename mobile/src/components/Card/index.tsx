@@ -4,8 +4,7 @@ import { Container, Icon, Content, Group, TextBold, TextRegular } from './styles
 
 import IconArrowUp from "../../assets/Arrow-circle-up.png";
 import IconArrowDown from "../../assets/Arrow-circle-down.png";
-import { dateFullToString } from "../../utils";
-import { numberToMoney } from "./helper";
+import { dateFullToString, numberToMoney } from "../../utils";
 
 interface Props {
   financa: Financa;
