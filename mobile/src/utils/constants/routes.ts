@@ -4,5 +4,6 @@ export const ROUTES = {
   PRICE_TOTAL: 'financa/total',
   FINANCA: 'financa',
   FINANCA_FILTER: 'financa/filter',
-  SIGNUP: 'user/signup'
+  SIGNUP: 'user/signup',
+  FINANCA_CREATE: 'financa/create'
 }
