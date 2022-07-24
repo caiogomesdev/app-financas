@@ -19,8 +19,13 @@ import ModalCustos from '../ModalCustos';
 import IconArrowUp from "../../assets/Arrow-circle-up.png";
 import IconArrowDown from "../../assets/Arrow-circle-down.png";
 import IconMenu from "../../assets/Menu.png";
+import { numberToMoney } from "../../utils";
 
-const App: React.FC = () => {
+interface Params {
+  priceTotal: number;
+}
+
+const App: React.FC<Params> = ({ priceTotal }) => {
   const navigation = useNavigation();
   const [ openModal, setOpenModal ] = useState(false);
   const [ profit, setProfit ] = useState(false);
@@ -55,8 +60,9 @@ const App: React.FC = () => {
         }>
         <MenuIcon source={IconMenu} />
       </MenuButton>
+
       <Group>
-        <PriceText>R$ 100,00</PriceText>
+        <PriceText>{ numberToMoney(priceTotal) }</PriceText>
         <SaldoAtualText>Saldo atual</SaldoAtualText>
       </Group>
 
