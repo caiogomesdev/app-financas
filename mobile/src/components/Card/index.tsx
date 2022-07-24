@@ -13,14 +13,14 @@ interface Props {
 const App: React.FC<Props> = ({ financa }) => {
   return (
     <Container>
-      <Icon source={ financa.isProfit ? IconArrowUp : IconArrowDown} />
+      <Icon source={ financa.price >= 0 ? IconArrowUp : IconArrowDown} />
       <Content>
         <Group>
           <TextBold>{financa.title}</TextBold>
           <TextRegular>{financa.type}</TextRegular>
         </Group>
         <Group>
-          <TextBold>{ financa.isProfit ? '+' : '-' } { numberToMoney(financa.value) }</TextBold>
+          <TextBold>{ financa.price >= 0 ? '+' : '-' } { numberToMoney(financa.price) }</TextBold>
           <TextRegular isRight={true}>{dateFullToString(financa.date)}</TextRegular>
         </Group>
       </Content>

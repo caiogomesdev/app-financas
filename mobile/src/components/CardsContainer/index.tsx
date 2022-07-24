@@ -8,16 +8,16 @@ import Card from '../Card';
 
 const App: React.FC = () => {
   const [financas, _setFinancas] = useState<Financa[]>([
-    { isProfit: true, title: 'Frelancer', type: 'Servico', value: 500, date: new Date() },
-    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date() },
-    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-15T00:00') },
-    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-15T00:00') },
-    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-15T00:00') },
-    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-15T00:00') },
-    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-12T00:00') },
-    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-12T00:00') },
-    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-12T00:00') },
-    { isProfit: false, title: 'Cursos programacao', type: 'Estudo', value: 200, date: new Date('2022-07-12T00:00') },
+    { title: 'Frelancer', type: 'Servico', price: 500, date: new Date() },
+    { title: 'Cursos programacao', type: 'Estudo', price: 200, date: new Date() },
+    { title: 'Cursos programacao', type: 'Estudo', price: 200, date: new Date('2022-07-15T00:00') },
+    { title: 'Cursos programacao', type: 'Estudo', price: 200, date: new Date('2022-07-15T00:00') },
+    { title: 'Cursos programacao', type: 'Estudo', price: 200, date: new Date('2022-07-15T00:00') },
+    { title: 'Cursos programacao', type: 'Estudo', price: 200, date: new Date('2022-07-15T00:00') },
+    { title: 'Cursos programacao', type: 'Estudo', price: 200, date: new Date('2022-07-12T00:00') },
+    { title: 'Cursos programacao', type: 'Estudo', price: 200, date: new Date('2022-07-12T00:00') },
+    { title: 'Cursos programacao', type: 'Estudo', price: 200, date: new Date('2022-07-12T00:00') },
+    { title: 'Cursos programacao', type: 'Estudo', price: 200, date: new Date('2022-07-12T00:00') },
   ]);
 
   const [ financasApp, setFinancasApp ] = useState<FinancaApp[]>([]);
@@ -28,10 +28,10 @@ const App: React.FC = () => {
 
   return (
     <Container>
-      <FlatList data={financasApp} renderItem={({ item, index }) => (
+      <FlatList data={financasApp} renderItem={({ item }) => (
         <View>
           <DateText isDateToday={isDateToday(item.dateString)}> {isDateToday(item.dateString) ? 'Hoje' : item.dateString} </DateText>
-          <FlatList data={item.financas} renderItem={({ item, index }) =>
+          <FlatList data={item.financas} renderItem={({ item }) =>
             <Card financa={item} />}
           />
         </View>

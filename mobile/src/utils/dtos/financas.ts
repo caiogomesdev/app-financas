@@ -1,7 +1,6 @@
 export interface Financa {
-  isProfit: boolean;
   title: string;
   type: string;
-  value: number;
+  price: number;
   date: Date;
 }
