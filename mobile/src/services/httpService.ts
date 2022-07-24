@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from "axios";
-import { meRoute, signinRoute } from "./http";
+import { getAllPrices, meRoute, signinRoute } from "./http";
 
 class HttpService {
   token = ''
@@ -19,6 +19,10 @@ class HttpService {
   }
 
   signinRoute = signinRoute
+
+  getAllPricesRoute(): Promise<number> {
+    return getAllPrices(this.getConfig())
+  }
 }
 
 
