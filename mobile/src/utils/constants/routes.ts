@@ -3,4 +3,5 @@ export const ROUTES = {
   SIGNIN: 'user/signin',
   PRICE_TOTAL: 'financa/total',
   FINANCA: 'financa',
+  FINANCA_FILTER: 'financa/filter'
 }
