@@ -3,11 +3,11 @@ import { FlatList, View } from 'react-native';
 import { Container, DateText } from './styles';
 import { financasToFinancasApp, FinancaApp  } from './helpers';
 import { isDateToday } from '../../utils';
-import { Financa } from '../../utils/dtos';
+import { IFinancaDto } from '../../utils/dtos';
 import Card from '../Card';
 
 interface Params {
-  financas: Financa[]
+  financas: IFinancaDto[]
 }
 const App: React.FC<Params> = ({ financas }) => {
   const [ financasApp, setFinancasApp ] = useState<FinancaApp[]>([]);

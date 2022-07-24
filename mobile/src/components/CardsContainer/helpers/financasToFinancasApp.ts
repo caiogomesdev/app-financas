@@ -1,12 +1,12 @@
 import { dateToString } from "../../../utils";
-import { Financa } from "../../../utils/dtos";
+import { IFinancaDto } from "../../../utils/dtos";
 
 export interface FinancaApp {
   dateString: string;
-  financas: Financa[];
+  financas: IFinancaDto[];
 }
 
-export const financasToFinancasApp = (financas: Financa[]): FinancaApp[] => {
+export const financasToFinancasApp = (financas: IFinancaDto[]): FinancaApp[] => {
   const result: FinancaApp[] = [];
   financas.forEach(item => {
     const date = item.date;

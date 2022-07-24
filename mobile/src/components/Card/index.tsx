@@ -1,5 +1,5 @@
 import React from "react";
-import { Financa } from "../../utils/dtos";
+import { IFinancaDto } from "../../utils/dtos";
 import { Container, Icon, Content, Group, TextBold, TextRegular } from './styles';
 
 import IconArrowUp from "../../assets/Arrow-circle-up.png";
@@ -7,7 +7,7 @@ import IconArrowDown from "../../assets/Arrow-circle-down.png";
 import { dateFullToString, numberToMoney } from "../../utils";
 
 interface Props {
-  financa: Financa;
+  financa: IFinancaDto;
 }
 
 const App: React.FC<Props> = ({ financa }) => {

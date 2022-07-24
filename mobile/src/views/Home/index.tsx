@@ -4,11 +4,11 @@ import Header from '../../components/Header';
 import Tabs from '../../components/Tabs';
 import CardsContainer from '../../components/CardsContainer';
 import { httpService } from '../../services';
-import { Financa } from '../../utils/dtos';
+import { IFinancaDto } from '../../utils/dtos';
 import { FilterEnum } from '../../utils/enums';
 
 const App: React.FC = () => {
-  const [financas, setFinancas] = useState<Financa[]>([]);
+  const [financas, setFinancas] = useState<IFinancaDto[]>([]);
   const [filter, setFilter] = useState(FilterEnum.ALL);
   const [priceTotal, setPriceTotal] = useState(0);
 

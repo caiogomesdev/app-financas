@@ -50,7 +50,9 @@ const App: React.FC = () => {
           value={ password }
           onChangeText={(text) => setPassword(text)}
           />
-          <Button><TextButton>Cadastrar</TextButton></Button>
+          <Button onPress={() => console.log('cadastrar')}>
+            <TextButton>Cadastrar</TextButton>
+          </Button>
       </Group>
       <Group></Group>
 
