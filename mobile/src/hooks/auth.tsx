@@ -3,6 +3,7 @@ import { cacheService, httpService } from '../services';
 
 interface IAuth {
   isLogged: boolean;
+  isLoading: boolean;
   user: IUser | null;
   logout: () => Promise<void>;
   signIn: (login: ISignIn) => Promise<void>;
@@ -20,16 +21,18 @@ export interface IUser extends ISignIn {
 export const AuthContext = createContext<IAuth | null>(null);
 const AuthProvider: React.FC = ({ children }) => {
   const [ user, setUser ] = useState<IUser | null>(null);
+  const [ loading, seLoading ] = useState<boolean>(true);
 
   useEffect(() => {
     init();
   }, [])
 
   async function init() {
-    const token = await cacheService.loadToken()
+    const token = await cacheService.loadToken();
     if (token) {
-      signInWithToken(token);
+      await signInWithToken(token);
     }
+    seLoading(false);
   }
 
   async function signInWithToken(token: string): Promise<void> {
@@ -54,7 +57,7 @@ const AuthProvider: React.FC = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ isLogged: !!user, user, logout, signIn }}>
+    <AuthContext.Provider value={{ isLogged: !!user, isLoading: loading, user, logout, signIn }}>
       {children}
     </AuthContext.Provider>
   )
