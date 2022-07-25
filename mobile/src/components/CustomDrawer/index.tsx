@@ -7,13 +7,17 @@ import { AuthContext } from '../../hooks/auth';
 const App: React.FC<DrawerContentComponentProps> = (props) => {
   const authContext = useContext(AuthContext);
 
+  async function logout() {
+    await authContext?.logout();
+  }
+
   return (
     <DrawerContentScrollView {...props}>
         <ProfileImage source={Profile} />
       <Button>
         <TextBold>{authContext?.user?.name}</TextBold>
       </Button>
-      <Button onPress={() => authContext?.logout()}>
+      <Button onPress={() => logout()}>
         <TextRegular>Sair</TextRegular>
       </Button>
     </DrawerContentScrollView>

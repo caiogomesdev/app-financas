@@ -1,10 +1,10 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { httpService } from '../services';
+import { cacheService, httpService } from '../services';
 
 interface IAuth {
   isLogged: boolean;
   user: IUser | null;
-  logout: () => void;
+  logout: () => Promise<void>;
   signIn: (login: ISignIn) => Promise<void>;
 }
 
@@ -22,14 +22,22 @@ const AuthProvider: React.FC = ({ children }) => {
   const [ user, setUser ] = useState<IUser | null>(null);
 
   useEffect(() => {
-    signInWithToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmMmExOWIyZC1mMTkxLTRhODctYjAxOS00N2I5MDIyOTljNmUiLCJpYXQiOjE2NTg2MTUzNDksImV4cCI6MTY1ODc4ODE0OX0.WE1ii4sX2CKi20tMxTgi0Hnr9TH1yBnLFqMkPtR_H1Q');
+    init();
   }, [])
+
+  async function init() {
+    const token = await cacheService.loadToken()
+    if (token) {
+      signInWithToken(token);
+    }
+  }
 
   async function signInWithToken(token: string): Promise<void> {
     try {
       httpService.changeAcessToken(token);
       const result = await httpService.meRoute();
       setUser(result.data);
+      await cacheService.setToken(token);
     } catch {
       setUser(null);
     }
@@ -40,8 +48,9 @@ const AuthProvider: React.FC = ({ children }) => {
     signInWithToken(result);
   }
 
-  function logout(): void {
+  async function logout(): Promise<void> {
     setUser(null)
+    await cacheService.removeToken();
   }
 
   return (
