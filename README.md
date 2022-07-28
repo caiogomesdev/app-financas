@@ -9,8 +9,8 @@
 Aplicação para gestão financeira 100% open source, back-end e mobile. <br />
 
 ## Get started
-* [mobile](https://github.com/caiogomesdev/app-financas/tree/main/mobile#get-started-mobile)
-* [back-end](https://github.com/caiogomesdev/app-financas/tree/main/back-end#get-started-back-end)
+* [mobile](https://github.com/caiogomesdev/app-financas/tree/main/mobile)
+* [back-end](https://github.com/caiogomesdev/app-financas/tree/main/back-end)
 
 ## Tecnologias Mobile
 * react native
@@ -33,7 +33,7 @@ Aplicação para gestão financeira 100% open source, back-end e mobile. <br />
 * jsonwebtoken
 * passport
 * guards
-* postgress
+* postgresql
 * typeorm
 * typescript
 * javascript
